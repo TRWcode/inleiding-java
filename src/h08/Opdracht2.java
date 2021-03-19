@@ -13,6 +13,7 @@ public class Opdracht2 extends Applet {
     Button aantalvrouwen;
     Button potentielevrouwen;
     Button potentielemannen;
+    Button resetknop;
 
     //labels
 
@@ -62,6 +63,9 @@ public class Opdracht2 extends Applet {
         labelpvrouwen = new Label("Potentiele vrouwen: 0");
         add(labelpvrouwen);
 
+        resetknop = new Button("Reset");
+        add(resetknop);
+        resetknop.addActionListener(new reset());
     }
 
 
@@ -130,6 +134,15 @@ public class Opdracht2 extends Applet {
             labelpvrouwen.setText("Potentiele vrouwen " + uitkomstpvrouwen);
             uitkomstvrouwen++;
             uitkomstpvrouwen++;
+        }
+    }
+    class reset implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            // hoe kan ik er voor zorgen dat de cijfers resetten ook?
+            repaint();
+
+
         }
     }
 }

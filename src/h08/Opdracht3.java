@@ -11,15 +11,17 @@ public class Opdracht3 extends Applet {
 
     //knop
     Button okbutton;
+    Button resetbutton;
 
     Label uitkomstlabel;
 
-    int btw;
+    double btw;
     double uitkomst;
 
     public void init() {
         tekstvak = new TextField("21% BTW uitrekenen");
         add(tekstvak);
+        tekstvak.addActionListener(new Knopje());
 
         okbutton = new Button("Ok");
         add(okbutton);
@@ -28,8 +30,10 @@ public class Opdracht3 extends Applet {
         uitkomstlabel = new Label("hier komt de uitkomst");
         add(uitkomstlabel);
 
-        btw = 21;
-
+        btw = 0.21;
+        resetbutton = new Button("Reset");
+        add(resetbutton);
+        resetbutton.addActionListener(new reset());
     }
 
 
@@ -42,6 +46,9 @@ public class Opdracht3 extends Applet {
         okbutton.setSize(30,20);
 
         uitkomstlabel.setLocation(20,50);
+
+        resetbutton.setLocation(20,80);
+
     }
 
     // ok knop
@@ -50,10 +57,22 @@ public class Opdracht3 extends Applet {
         public void actionPerformed(ActionEvent e) {
 
             String input = tekstvak.getText();
-            uitkomst = Double.parseDouble(input + "/" + btw);
+            double inputDouble = Double.parseDouble(input);
+            uitkomst = inputDouble * btw + inputDouble;
             uitkomstlabel.setText("" + uitkomst);
+            repaint();
 
 
+        }
+    }
+
+    class reset implements ActionListener{
+
+        public void actionPerformed(ActionEvent e) {
+
+            tekstvak.setText("");
+            uitkomstlabel.setText("Nieuw bedrag invoeren");
+            repaint();
         }
     }
 }

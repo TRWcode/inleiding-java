@@ -6,34 +6,34 @@ import java.applet.Applet;
 
 public class Opdracht1 extends Applet {
     //personen
-    double jan, ali , jeannette, thomas;
+    double euro, personen;
     //uitkomst
     double uitkomst;
 
     public void init() {
-        jan = 28.25 ;
-        ali = 28.25 ;
-        jeannette = 28.25;
-        thomas = 28.25;
+
+        euro = 113;
+        personen = 4;
+
         //uitkomst
-        uitkomst = jan + ali + jeannette + thomas;
+        uitkomst = euro / personen;
     }
 
     public void paint(Graphics g) {
         //rekensom
-        String optelsomString = jan + " + " + ali + " + " + jeannette + " + " + thomas + " = " + uitkomst;
+        String optelsomString = euro + "/" + personen + "=" + uitkomst;
         g.drawString(optelsomString,50,50);
         //jan
-        g.drawString("Jan: " + jan,50,90);
+        g.drawString("Jan: " +uitkomst ,50,90);
 
         //ali
-        g.drawString("Ali: " + ali,50,110);
+        g.drawString("Ali: " +uitkomst ,50,110);
 
         //jeannette
-        g.drawString("Jeannette: " + jeannette,50,130);
+        g.drawString("Jeannette: " +uitkomst ,50,130);
 
         //thomas
-        g.drawString("Thomas: " + thomas,50,150);
+        g.drawString("Thomas: " +uitkomst ,50,150);
     }
 }
 

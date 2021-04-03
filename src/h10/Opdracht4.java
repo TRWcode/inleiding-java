@@ -75,14 +75,14 @@ public class Opdracht4 extends Applet {
             }
 
             if ( (invoerjaar % 4 == 0 && !(invoerjaar % 100 == 0)) || invoerjaar % 400 == 0 ) {
-                tekstjaar = " " + invoerjaar + "is een schrikkeljaar";
+                tekstjaar = " " + invoerjaar + " is een schrikkeljaar";
                 if (invoermaanden == 2) {
                     datum = "Februari heeft 29 dagen";
                 }
 
             }
             else {
-                tekstjaar = " " + invoerjaar + "is geen schrikkeljaar";
+                tekstjaar = " " + invoerjaar + " is geen schrikkeljaar";
             }
             tekstvak.setText("");
             repaint();

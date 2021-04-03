@@ -11,8 +11,12 @@ public class Opdracht5 extends Applet {
 
     Button okbutton;
 
+    double optellenvancijfer = 0.0;
+    double ingevoerdecijfer = 0.0;
 
-    String tekst;
+    int aantalcijfers = 0;
+
+    String resultaat = "";
 
 
     public void init() {
@@ -24,7 +28,7 @@ public class Opdracht5 extends Applet {
         add(okbutton);
         okbutton.addActionListener(new tekstVeld());
 
-        tekst = "";
+
 
     }
 
@@ -34,31 +38,26 @@ public class Opdracht5 extends Applet {
 
         okbutton.setLocation(100,20);
 
-        g.drawString("" + tekst,20,100);
+        double gemiddeld = Math.round((optellenvancijfer / aantalcijfers) * 100);
+        gemiddeld /= 100;
 
+        g.drawString("Het cijfer is: " + ingevoerdecijfer + " het gemiddelde is: " + gemiddeld,20,100);
+        g.drawString("dit is een: " + resultaat,20,120);
     }
 
     class tekstVeld implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
 
-            String input = tekstveld.getText();
-            int inputCijfer = Integer.parseInt(input);
-
-            switch (inputCijfer) {
-                case 1:
-                case 2:
-                case 3:
-                case 4: tekst = "onvoldoende"; break;
-                case 5: tekst = "voldoende"; break;
-                case 6: tekst = "voldoende"; break;
-                case 7: tekst = "voldoende"; break;
-                case 8: tekst = "voldoende"; break;
-                case 9: tekst = "voldoende"; break;
-                case 10: tekst = "voldoende"; break;
-
-
+            ingevoerdecijfer = Double.parseDouble(tekstveld.getText());
+            optellenvancijfer = optellenvancijfer + ingevoerdecijfer;
+            aantalcijfers++;
+            if (optellenvancijfer / aantalcijfers >= 5.5) {
+                resultaat = "Voldoende";
+            } else {
+                resultaat = "Onvoldoende";
             }
+
             tekstveld.setText("");
             repaint();
 
